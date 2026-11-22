@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="./imgs/icon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <title>Color Theme Generator</title>
+</head>
+<body>
+  <h1>get your personal color theme</h1>
+  <main>
+    <form id="color-form">
+      <label for="theme-color">Chose color theme</label>
+      <input type="color" name="theme-color" id="theme-color">
+      <label for="theme-type">Chose type theme</label>
+      <select name="theme-type" id="theme-type">
+        <option value="monochrome">Monochrome</option>
+        <option value="monochrome-light">Monochrome-Light</option>
+        <option value="monochrome-dark">Monochrome-Dark</option>
+        <option value="analogic">Analogic</option>
+        <option value="complement">Complement</option>
+        <option value="analogic-complement">Analogic-Complement</option>
+        <option value="triad">Triad</option>
+      </select>
+      <button>Get Color Theme</button>
+    </form>
+    <section id="color-section" class="color-section">
+      <div class="color black"></div>
+      <div class="color dark-gray"></div>
+      <div class="color gray"></div>
+      <div class="color light-gray"></div>
+      <div class="color white"></div>
+      <p class="color-desc">#</p>
+      <p class="color-desc">#</p>
+      <p class="color-desc">#</p>
+      <p class="color-desc">#</p>
+      <p class="color-desc">#</p>
+    </section>
+  </main>
+  <script type="module" src="./script.js"></script>
+</body>
+</html>
