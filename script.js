@@ -10,10 +10,10 @@ function renderColors(arr){
   let i = 0;
   for(let color of arr){
     colorsHTML += `
-      <div class="color color-${i}"></div>
+      <div class="color color-${i}" data-hex="${color}"></div>
     `;
     colorsDescHTML += `
-      <p class="color-desc">${color}</p>
+      <p class="color-desc" data-hex="${color}">${color}</p>
     `;
     i++;
   }
@@ -38,6 +38,26 @@ colorForm.addEventListener('submit', (e) => {
       colorArr.push(color.hex.value)
     }
     renderColors(colorArr);
+    сolorArr.length = 0;
   })
-  colorArr.length = 0;
 })
+
+colorSection.addEventListener('click', (e) => {
+  const target = e.target.closest('[data-hex]');
+  if (!target) return;
+
+  const hex = target.dataset.hex;
+
+  navigator.clipboard.writeText(hex)
+    .then(() => {
+      const desc = target.classList.contains('color-desc')
+        ? target
+        : colorSection.querySelector(`.color-desc[data-hex="${hex}"]`);
+
+      if (!desc) return;
+      const original = desc.textContent;
+      desc.textContent = 'Copied!';
+      setTimeout(() => { desc.textContent = original; }, 1000);
+    })
+    .catch(err => console.error('Error: ', err));
+});
