@@ -2,7 +2,7 @@ const colorSection = document.getElementById('color-section');
 const themeColor = document.getElementById('theme-color');
 const themeType = document.getElementById('theme-type');
 const colorForm = document.getElementById('color-form');
-const colorArr = [];
+let colorArr = [];
 
 function renderColors(arr){
   let colorsHTML = ``;
@@ -38,7 +38,7 @@ colorForm.addEventListener('submit', (e) => {
       colorArr.push(color.hex.value)
     }
     renderColors(colorArr);
-    сolorArr.length = 0;
+    colorArr = [];
   })
 })
 
